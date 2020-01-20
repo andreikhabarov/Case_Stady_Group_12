@@ -1,5 +1,8 @@
 ---
-title: "General_Task_Group_12"
+title: "General_Tasks_Group_12"
+author: "Andrei Khabarov, ..., ..., ..., ..."
+group: "Gruppe 12"
+date: "2020/01/20" 
 output: html_document
 ---
 
@@ -7,22 +10,42 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Aufgabe 1
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Logistik spielt in der Produktentwicklung der Automobilindustrie eine immer größer werdende Rolle. So müssen vom Lieferanten produzierte Teile zunächst zum OEM geliefert werden, bevor sie eingebaut werden können. Was auf den ersten Blick logisch erscheint, sollte für eine professionelle Organisation unbedingt näher analysiert werden. Erstellen Sie deshalb eine Verteilung für den Logistikverzug von Komponente „K7“. Nutzen Sie hierfür das Produktionsdatum aus dem Datensatz “Komponente_K7.csv” und das Wareneingangsdatum aus “Logistikverzug_K7.csv”. Sie können davon ausgehen, dass der Hersteller das Teil am Produktionstag in den Warenausgang übergibt. Erstellen Sie für die Modellbildung in R einen neuen Datensatz “Logistikverzug”, der die benötigten Informationen aus beiden Datensätzen enthält Erstellen Sie für die Modellbildung in R einen neuen Datensatz “Logistikverzug”, der die benötigten Informationen aus beiden Datensätzen enthält.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+*a. Wie ist der Logistikverzug verteilt? Begründen Sie Ihre Auswahl und stellen Sie Ihre Vorgehensweise kurz dar.*
 
-```{r cars}
-summary(cars)
+*b. Wie viel Zeit vergeht mindestens/höchstens zwischen Warenausgang und Wareneingang?*
+
+*c. Bestimmen Sie den Mittelwert des Logistikverzugs.*
+
+*d. Stellen Sie die Verteilung in geeigneter Weise dar.*
+
+***
+
+Zum Lösen der Aufgaben müssen wir die vorliegenden Daten geeignet aufbereiten und die notwendigen Datensätze zusammenfügen. Zuvor werden die benötigten Bibliotheken eingebunden.
+```{r message=FALSE, warning=FALSE}
+if(!require(tidyverse)) {
+  install.packages("tidyverse")
+  require(tidyverse)
+}
+
+if(!require(stringr)) {
+  install.packages("stringr")
+  require(stringr)
+}
+
+if(!require(dplyr)) {
+  install.packages("dplyr")
+  require(dplyr)
+}
+
+if(!require(magrittr)) {
+  install.packages("magrittr")
+  require(magrittr)
+}
+
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
